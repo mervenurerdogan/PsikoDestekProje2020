@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PsikoProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="BolumID" />
+    </Key>
+    <Property Name="BolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaneID" Type="Int32" />
+    <Property Name="BolumAdi" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hastane" Relationship="Self.FK_Bolum_Hastane" FromRole="Bolum" ToRole="Hastane" />
+    <NavigationProperty Name="Doktor" Relationship="Self.FK_Doktor_Bolum" FromRole="Bolum" ToRole="Doktor" />
+  </EntityType>
+  <EntityType Name="Doktor">
+    <Key>
+      <PropertyRef Name="Doktorid" />
+    </Key>
+    <Property Name="Doktorid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoktorAdı" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="SoktorSoyadı" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="DoktorTel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="DoktorMail" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DoktorSifre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="BolumID" Type="Int32" />
+    <Property Name="DoktorUnvan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bolum" Relationship="Self.FK_Doktor_Bolum" FromRole="Doktor" ToRole="Bolum" />
+    <NavigationProperty Name="HastaNot" Relationship="Self.FK_HastaNot_Doktor" FromRole="Doktor" ToRole="HastaNot" />
+    <NavigationProperty Name="Randevu" Relationship="Self.FK_Randevu_Doktor" FromRole="Doktor" ToRole="Randevu" />
+    <NavigationProperty Name="Recete" Relationship="Self.FK_Recete_Doktor" FromRole="Doktor" ToRole="Recete" />
+  </EntityType>
+  <EntityType Name="Hasta">
+    <Key>
+      <PropertyRef Name="HastaID" />
+    </Key>
+    <Property Name="HastaID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaAdı" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <Property Name="HastaSoyadı" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <Property Name="HastaAdres" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="HastaTelefon" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="HastaTC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="HastaMail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="HastaSifre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HastaNot" Relationship="Self.FK_HastaNot_Hasta" FromRole="Hasta" ToRole="HastaNot" />
+    <NavigationProperty Name="Randevu" Relationship="Self.FK_Randevu_Hasta" FromRole="Hasta" ToRole="Randevu" />
+    <NavigationProperty Name="Recete" Relationship="Self.FK_Recete_Hasta" FromRole="Hasta" ToRole="Recete" />
+  </EntityType>
+  <EntityType Name="Hastane">
+    <Key>
+      <PropertyRef Name="HastaneID" />
+    </Key>
+    <Property Name="HastaneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IlceID" Type="Int32" />
+    <Property Name="HastaneAdi" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bolum" Relationship="Self.FK_Bolum_Hastane" FromRole="Hastane" ToRole="Bolum" />
+    <NavigationProperty Name="Ilceler" Relationship="Self.FK_Hastane_Ilceler" FromRole="Hastane" ToRole="Ilceler" />
+  </EntityType>
+  <EntityType Name="HastaNot">
+    <Key>
+      <PropertyRef Name="HastaNotID" />
+    </Key>
+    <Property Name="HastaNotID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaID" Type="Int64" />
+    <Property Name="DoktorID" Type="Int64" />
+    <Property Name="Notlar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Doktor" Relationship="Self.FK_HastaNot_Doktor" FromRole="HastaNot" ToRole="Doktor" />
+    <NavigationProperty Name="Hasta" Relationship="Self.FK_HastaNot_Hasta" FromRole="HastaNot" ToRole="Hasta" />
+  </EntityType>
+  <EntityType Name="Ilceler">
+    <Key>
+      <PropertyRef Name="IlceID" />
+    </Key>
+    <Property Name="IlceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IlID" Type="Int32" />
+    <Property Name="Ilce" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Hastane" Relationship="Self.FK_Hastane_Ilceler" FromRole="Ilceler" ToRole="Hastane" />
+    <NavigationProperty Name="Iller" Relationship="Self.FK__Ilceler__IlID__25869641" FromRole="Ilceler" ToRole="Iller" />
+  </EntityType>
+  <EntityType Name="Iller">
+    <Key>
+      <PropertyRef Name="IlID" />
+    </Key>
+    <Property Name="IlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Il" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ilceler" Relationship="Self.FK__Ilceler__IlID__25869641" FromRole="Iller" ToRole="Ilceler" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="RandevuID" />
+    </Key>
+    <Property Name="RandevuID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaID" Type="Int64" />
+    <Property Name="DoktorID" Type="Int64" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+    <Property Name="RandevuDurum" Type="Boolean" />
+    <NavigationProperty Name="Doktor" Relationship="Self.FK_Randevu_Doktor" FromRole="Randevu" ToRole="Doktor" />
+    <NavigationProperty Name="Hasta" Relationship="Self.FK_Randevu_Hasta" FromRole="Randevu" ToRole="Hasta" />
+  </EntityType>
+  <EntityType Name="Recete">
+    <Key>
+      <PropertyRef Name="ReceteID" />
+    </Key>
+    <Property Name="ReceteID" Type="Int64" Nullable="false" />
+    <Property Name="ilacAdi" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Doz" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <Property Name="KullanımTalimati" Type="String" MaxLength="400" FixedLength="true" Unicode="false" />
+    <Property Name="HastaID" Type="Int64" />
+    <Property Name="DoktorID" Type="Int64" />
+    <NavigationProperty Name="Doktor" Relationship="Self.FK_Recete_Doktor" FromRole="Recete" ToRole="Doktor" />
+    <NavigationProperty Name="Hasta" Relationship="Self.FK_Recete_Hasta" FromRole="Recete" ToRole="Hasta" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Bolum_Hastane">
+    <End Role="Hastane" Type="Self.Hastane" Multiplicity="0..1" />
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hastane">
+        <PropertyRef Name="HastaneID" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="HastaneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doktor_Bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+    <End Role="Doktor" Type="Self.Doktor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="BolumID" />
+      </Principal>
+      <Dependent Role="Doktor">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaNot_Doktor">
+    <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1" />
+    <End Role="HastaNot" Type="Self.HastaNot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktor">
+        <PropertyRef Name="Doktorid" />
+      </Principal>
+      <Dependent Role="HastaNot">
+        <PropertyRef Name="DoktorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_Doktor">
+    <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktor">
+        <PropertyRef Name="Doktorid" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="DoktorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recete_Doktor">
+    <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1" />
+    <End Role="Recete" Type="Self.Recete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktor">
+        <PropertyRef Name="Doktorid" />
+      </Principal>
+      <Dependent Role="Recete">
+        <PropertyRef Name="DoktorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaNot_Hasta">
+    <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+    <End Role="HastaNot" Type="Self.HastaNot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hasta">
+        <PropertyRef Name="HastaID" />
+      </Principal>
+      <Dependent Role="HastaNot">
+        <PropertyRef Name="HastaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_Hasta">
+    <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hasta">
+        <PropertyRef Name="HastaID" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="HastaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recete_Hasta">
+    <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+    <End Role="Recete" Type="Self.Recete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hasta">
+        <PropertyRef Name="HastaID" />
+      </Principal>
+      <Dependent Role="Recete">
+        <PropertyRef Name="HastaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hastane_Ilceler">
+    <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="0..1" />
+    <End Role="Hastane" Type="Self.Hastane" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ilceler">
+        <PropertyRef Name="IlceID" />
+      </Principal>
+      <Dependent Role="Hastane">
+        <PropertyRef Name="IlceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ilceler__IlID__25869641">
+    <End Role="Iller" Type="Self.Iller" Multiplicity="0..1" />
+    <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Iller">
+        <PropertyRef Name="IlID" />
+      </Principal>
+      <Dependent Role="Ilceler">
+        <PropertyRef Name="IlID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PsikoProjeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" />
+    <EntitySet Name="Doktor" EntityType="Self.Doktor" />
+    <EntitySet Name="Hasta" EntityType="Self.Hasta" />
+    <EntitySet Name="Hastane" EntityType="Self.Hastane" />
+    <EntitySet Name="HastaNot" EntityType="Self.HastaNot" />
+    <EntitySet Name="Ilceler" EntityType="Self.Ilceler" />
+    <EntitySet Name="Iller" EntityType="Self.Iller" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" />
+    <EntitySet Name="Recete" EntityType="Self.Recete" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Bolum_Hastane" Association="Self.FK_Bolum_Hastane">
+      <End Role="Hastane" EntitySet="Hastane" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doktor_Bolum" Association="Self.FK_Doktor_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Doktor" EntitySet="Doktor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaNot_Doktor" Association="Self.FK_HastaNot_Doktor">
+      <End Role="Doktor" EntitySet="Doktor" />
+      <End Role="HastaNot" EntitySet="HastaNot" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_Doktor" Association="Self.FK_Randevu_Doktor">
+      <End Role="Doktor" EntitySet="Doktor" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recete_Doktor" Association="Self.FK_Recete_Doktor">
+      <End Role="Doktor" EntitySet="Doktor" />
+      <End Role="Recete" EntitySet="Recete" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaNot_Hasta" Association="Self.FK_HastaNot_Hasta">
+      <End Role="Hasta" EntitySet="Hasta" />
+      <End Role="HastaNot" EntitySet="HastaNot" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_Hasta" Association="Self.FK_Randevu_Hasta">
+      <End Role="Hasta" EntitySet="Hasta" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recete_Hasta" Association="Self.FK_Recete_Hasta">
+      <End Role="Hasta" EntitySet="Hasta" />
+      <End Role="Recete" EntitySet="Recete" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hastane_Ilceler" Association="Self.FK_Hastane_Ilceler">
+      <End Role="Ilceler" EntitySet="Ilceler" />
+      <End Role="Hastane" EntitySet="Hastane" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ilceler__IlID__25869641" Association="Self.FK__Ilceler__IlID__25869641">
+      <End Role="Iller" EntitySet="Iller" />
+      <End Role="Ilceler" EntitySet="Ilceler" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PsikoProjeModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PsikoProjeModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
