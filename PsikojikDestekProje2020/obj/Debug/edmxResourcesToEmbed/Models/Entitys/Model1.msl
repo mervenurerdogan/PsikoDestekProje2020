@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PsikoProjeModelStoreContainer" CdmEntityContainer="PsikoProjeEntities">
+  <EntityContainerMapping StorageEntityContainer="PsikoProjeModelStoreContainer" CdmEntityContainer="PsikoProjeEntities1">
     <EntitySetMapping Name="Bolum">
       <EntityTypeMapping TypeName="PsikoProjeModel.Bolum">
         <MappingFragment StoreEntitySet="Bolum">
@@ -89,9 +89,9 @@
       <EntityTypeMapping TypeName="PsikoProjeModel.Recete">
         <MappingFragment StoreEntitySet="Recete">
           <ScalarProperty Name="ReceteID" ColumnName="ReceteID" />
-          <ScalarProperty Name="ilacAdi" ColumnName="ilacAdi" />
+          <ScalarProperty Name="IlacAdi" ColumnName="IlacAdi" />
           <ScalarProperty Name="Doz" ColumnName="Doz" />
-          <ScalarProperty Name="KullanımTalimati" ColumnName="KullanımTalimati" />
+          <ScalarProperty Name="KullanimTalimati" ColumnName="KullanimTalimati" />
           <ScalarProperty Name="HastaID" ColumnName="HastaID" />
           <ScalarProperty Name="DoktorID" ColumnName="DoktorID" />
         </MappingFragment>

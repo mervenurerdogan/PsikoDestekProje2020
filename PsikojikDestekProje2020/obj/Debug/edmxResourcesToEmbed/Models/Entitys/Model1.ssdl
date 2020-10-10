@@ -80,10 +80,10 @@
     <Key>
       <PropertyRef Name="ReceteID" />
     </Key>
-    <Property Name="ReceteID" Type="bigint" Nullable="false" />
-    <Property Name="ilacAdi" Type="char" MaxLength="100" />
-    <Property Name="Doz" Type="char" MaxLength="80" />
-    <Property Name="KullanımTalimati" Type="char" MaxLength="400" />
+    <Property Name="ReceteID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IlacAdi" Type="varchar" MaxLength="100" />
+    <Property Name="Doz" Type="varchar" MaxLength="50" />
+    <Property Name="KullanimTalimati" Type="varchar" MaxLength="400" />
     <Property Name="HastaID" Type="bigint" />
     <Property Name="DoktorID" Type="bigint" />
   </EntityType>
@@ -97,7 +97,7 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK__Ilceler__IlID__25869641">
+  <Association Name="FK__Ilceler__IlID__38996AB5">
     <End Role="Iller" Type="Self.Iller" Multiplicity="0..1" />
     <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
     <ReferentialConstraint>
@@ -259,7 +259,7 @@
     <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recete" EntityType="Self.Recete" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Ilceler__IlID__25869641" Association="Self.FK__Ilceler__IlID__25869641">
+    <AssociationSet Name="FK__Ilceler__IlID__38996AB5" Association="Self.FK__Ilceler__IlID__38996AB5">
       <End Role="Iller" EntitySet="Iller" />
       <End Role="Ilceler" EntitySet="Ilceler" />
     </AssociationSet>

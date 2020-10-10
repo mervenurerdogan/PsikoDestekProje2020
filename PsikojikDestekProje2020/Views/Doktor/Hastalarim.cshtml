@@ -1,0 +1,73 @@
+﻿@using PsikojikDestekProje2020.Models.Entitys
+@model List<Recete>
+@{
+    ViewBag.Title = "Hastalarim";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+
+
+
+<html>
+
+<head>
+    <title>Hastalarim Liste</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Hasta Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+         
+            <th>Hasta Adı</th>
+            <th>Hasta Soyadı</th>
+            <th>Hasta Randevu Detay</th>
+            <th>Hasta Reçete Detay</th>
+            <th>Hasta Alınan Not Geçmişi</th>
+
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var hasta in Model)
+        {
+
+    <tr class="w3-hover-blue">
+
+   
+        <td>@hasta.Hasta.HastaAdı</td>
+        <td>@hasta.Hasta.HastaSoyadı</td>
+        <td><a href="/Doktor/HastaRandevuListele/@hasta.HastaID" class="btn btn-info">Hasta Randevu  Detay</a>   </td>
+        <td><a href="/Doktor/HastaReceteListele/@hasta.HastaID" class="btn btn-info">Hasta Reçete Detay</a>  
+        </td><td><a href="/Doktor/NotListe/@hasta.HastaID" class="btn btn-info">Hasta  Alınan Not Detay</a>   </td>
+
+
+
+
+    </tr>
+
+        }
+
+    </table>
+
+</body>
+
+</html>
+
+
+
+
+

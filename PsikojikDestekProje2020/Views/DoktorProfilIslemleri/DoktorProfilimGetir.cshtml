@@ -1,0 +1,107 @@
+﻿@model PsikojikDestekProje2020.Models.Entitys.Doktor
+@{
+    ViewBag.Title = "DoktorProfilimGetir";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+<body>
+    <br />
+    <br />
+    <br />
+    @using (Html.BeginForm("DoktorProfilGuncelle", "DoktorProfilIslemleri", FormMethod.Post))
+    {
+
+        <h2 class="w3-center">Profilim</h2>
+
+        <div class="w3-row w3-section">
+
+            @*<div class="w3-rest">
+                    <label>Mail Adresiniz</label>
+                    @HttpContext.Current.User.Identity.Name
+                </div>*@
+        </div>
+
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label> Adınız</label>
+                @Html.TextBoxFor(x => x.DoktorAdı, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Soyadınız</label>
+                @Html.TextBoxFor(x => x.SoktorSoyadı, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Soyadınız</label>
+                @Html.TextBoxFor(x => x.DoktorMail, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Şifreniz</label>
+                @Html.TextBoxFor(x => x.DoktorSifre, new { @class = "w3-input w3-border" })
+                @*@Html.ValidationMessageFor(model => model.Sifre1, "", new { @class = "text-danger", @style = "color:red" })*@
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Bölümünüz</label>
+                @Html.DropDownListFor(x => x.Bolum.BolumID, (List<SelectListItem>)ViewBag.doktorbolum, "Bölümünüzü Seçin", new { @class = "form-control" })
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Telefonunuz</label>
+                @Html.TextBoxFor(x => x.DoktorTel, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Unvanınız</label>
+                @Html.TextBoxFor(x => x.DoktorUnvan, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Bilgilerimi Güncelle</button>
+
+
+
+    }
+
+
+
+
+
+</body>
+</html>

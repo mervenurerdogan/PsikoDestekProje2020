@@ -1,0 +1,120 @@
+﻿@model PsikojikDestekProje2020.Models.Entitys.Hasta
+@{
+    ViewBag.Title = "HastaDetayGetir";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+
+<h2>HastaDetayGetir</h2>
+
+<html>
+<head>
+    <title>Hasta Detay</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+<body>
+    @using (Html.BeginForm("HastaDetayGuncelle", "Doktor", FormMethod.Post))
+
+    {
+
+
+        <br />
+        <div class="w3-row w3-section">
+            <label style="font-size:large">Hasta T.C</label>
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.HastaTC, new { @class = "form-control" })
+
+            </div>
+        </div>
+       
+
+       
+        <div class="w3-row w3-section">
+            <label style="font-size:large">Hasta Adı</label>
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.HastaAdı, new { @class = "form-control" })
+
+            </div>
+        </div>
+    
+
+
+        <div class="w3-row w3-section">
+            <label style="font-size:large">Hasta Soyadı</label>
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.HastaSoyadı, new { @class = "form-control" })
+
+            </div>
+        </div>
+       
+
+
+
+      
+        <div class="w3-row w3-section">
+            <label style="font-size:large">Hasta Adres </label>
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.HastaAdres, new { @class = "form-control" })
+
+            </div>
+        </div>
+      
+
+
+
+     
+        <div class="w3-row w3-section">
+            <label style="font-size:large">Hasta Telefon</label>
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.HastaTelefon, new { @class = "form-control" })
+
+            </div>
+        </div>
+     
+
+
+
+
+
+    
+        <div class="w3-row w3-section">
+            <label style="font-size:large">Hasta Mail</label>
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.HastaMail, new { @class = "form-control" })
+
+            </div>
+        </div>
+       
+
+
+
+
+
+
+
+
+
+        <br />
+
+        <div>
+            <button class="btn btn-warning">Güncelle</button>
+
+        </div>
+
+        @Html.HiddenFor(n => n.HastaID)
+
+    }
+
+
+
+
+</body>
+
+</html>
+

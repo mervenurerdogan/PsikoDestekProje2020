@@ -34,13 +34,12 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">
                 <p>Hoşgeldiniz </p>
-
+                @Session["DoktorAdı"].ToString()
+                @Session["SoktorSoyadı"].ToString()
             </div>
 
-            <div>
-                <a class="navbar-brand" href="/HastaAnasayfa/Index"><img src="~/img/logo4.png" alt="image" width="200" height="100"></a>
-
-            </div>
+        <br />
+            <br />
 
 
 
@@ -49,26 +48,9 @@
 
 
                 <div class="w3-dropdown-hover">
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Kullanıcı İşlemleri</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Profilim</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Profilimi Güncelle</a>
-
-
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-                <div class="w3-dropdown-hover">
-
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Rapor İşlemleri</a>
-                    <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Raporlarımı Görüntüle</a>@*Rapor listesi*@
+                        <a href="/DoktorProfilIslemleri/DoktorProfilimGetir" class="w3-bar-item w3-button">Profilimi Güncelle</a>
 
 
                     </div>
@@ -77,9 +59,22 @@
                 <div class="w3-dropdown-hover">
 
 
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Fatura İşlemleri</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Hastalarım</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Faturalarımı Görüntüle</a>@*Fatura listesi*@
+                        <a href="/Doktor/Hastalarim/@Session["Doktorid"].ToString()" class="w3-bar-item w3-button">Hastalarımı Görüntüle</a>
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="w3-dropdown-hover">
+
+
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Randevularım</a>
+                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                        <a href="/Doktor/RandevularimiListele/@Session["Doktorid"].ToString()" class="w3-bar-item w3-button">Randevularımı Görüntüle</a>
 
 
 
@@ -88,12 +83,7 @@
                 </div>
 
 
-
-
-
-
-
-                <a href="/HastaAnasayfa/LogOut" class="list-group-item list-group-item-action bg-light">Çıkış Yap</a>
+                <a href="/DoktorLogin/LogOut" class="list-group-item list-group-item-action bg-light">Çıkış Yap</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -112,13 +102,10 @@
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="/HastaAnasayfa/Index">Anasayfa <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/Doktor/DoktorIndex">Anasayfa <span class="sr-only">(current)</span></a>
                         </li>
 
 
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Hakkimizda/Index">Hakkımızda <span class="sr-only">(current)</span></a>
-                        </li>
 
 
                         <li class="nav-item dropdown">
@@ -126,8 +113,8 @@
                                 Ayarlar
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/HastaAnasayfa/HastaProfilGunGetir">Hesabım</a>
-                                <a class="dropdown-item" href="/HastaAnasayfa/LogOut">Çıkış Yap</a>
+                                <a class="dropdown-item" href="/DoktorProfilIslemleri/DoktorProfilimGetir">Hesabım</a>
+                                <a class="dropdown-item" href="/DoktorLogin/LogOut">Çıkış Yap</a>
                                 <div class="dropdown-divider"></div>
                             </div>
                         </li>

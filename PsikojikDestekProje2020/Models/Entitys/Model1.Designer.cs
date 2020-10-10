@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\esrayuzgec\source\repos\PsikojikDestekProje2020\PsikojikDestekProje2020\Models\Entitys\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\a68_m\Source\Repos\PsikoDestekProje2020\PsikojikDestekProje2020\Models\Entitys\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

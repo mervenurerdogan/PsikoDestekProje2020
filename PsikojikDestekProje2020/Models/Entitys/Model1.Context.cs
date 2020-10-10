@@ -15,10 +15,10 @@ namespace PsikojikDestekProje2020.Models.Entitys
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class PsikoProjeEntities : DbContext
+    public partial class PsikoProjeEntities1 : DbContext
     {
-        public PsikoProjeEntities()
-            : base("name=PsikoProjeEntities")
+        public PsikoProjeEntities1()
+            : base("name=PsikoProjeEntities1")
         {
         }
     

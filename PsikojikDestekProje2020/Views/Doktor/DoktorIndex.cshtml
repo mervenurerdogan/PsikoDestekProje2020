@@ -1,8 +1,73 @@
-﻿
+﻿@using PsikojikDestekProje2020.Models.Entitys
+@model List<Doktor>
 @{
     ViewBag.Title = "DoktorIndex";
     Layout = "~/Views/Shared/_DoktorLayout.cshtml";
 }
 
-<h2>DoktorIndex</h2>
+<html>
+
+<head>
+    <title>Doktor Liste</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Sisteme Kayıtlı Doktorların Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Doktor ID</th>
+            <th>Doktor Adı</th>
+            <th>Doktor Soyadı</th>
+            <th>Doktor Mail</th>
+            <th>Doktor Telefon</th>
+            <th>Doktor Bölüm</th>
+            <th>Doktor Ünvanı</th>
+
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var doktor in Model)
+        {
+
+            <tr class="w3-hover-blue">
+                <td>@doktor.Doktorid</td>
+                <td>@doktor.DoktorAdı</td>
+                <td>@doktor.SoktorSoyadı</td>
+                <td>@doktor.DoktorMail</td>
+                <td>@doktor.DoktorTel</td>
+                <td>@doktor.Bolum.BolumAdi</td>
+                <td>@doktor.DoktorUnvan</td>
+
+
+
+
+
+            </tr>
+
+        }
+
+    </table>
+
+</body>
+
+</html>
+
+
+
+
 

@@ -1,0 +1,66 @@
+﻿@model PsikojikDestekProje2020.Models.Entitys.HastaNot
+@{
+    ViewBag.Title = "NotEkle";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MNE LAB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+
+
+<body>
+    <br />
+    <br />
+    <br />
+
+    <form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" method="post">
+        <h2 class="w3-center">Deney Ekle</h2>
+
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <label>Hasta Adı</label>
+                @Html.DropDownListFor(x => x.Hasta.HastaID, (List<SelectListItem>)ViewBag.hastadgr, "Hasta Seçin...", new { @class = "form-control" })
+            </div>
+            <div class="w3-half">
+                <label>Doktor Adı</label>
+                @Html.DropDownListFor(x => x.Doktor.Doktorid, (List<SelectListItem>)ViewBag.doktordgr, "Personel Seçin...", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="w3-row-padding">
+
+            @Html.TextAreaFor(x => x.Notlar, new { @class = "form-control" })
+
+        </div>
+
+        
+
+        <div style=" margin-bottom:15px;margin-top:15px;position:relative">
+
+
+        </div>
+        <br />
+
+       
+
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Not Ekle</button>
+
+    </form>
+
+</body>
+</html>
+
+
+
+
+

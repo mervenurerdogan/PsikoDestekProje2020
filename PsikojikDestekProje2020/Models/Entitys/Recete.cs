@@ -15,9 +15,9 @@ namespace PsikojikDestekProje2020.Models.Entitys
     public partial class Recete
     {
         public long ReceteID { get; set; }
-        public string ilacAdi { get; set; }
+        public string IlacAdi { get; set; }
         public string Doz { get; set; }
-        public string KullanımTalimati { get; set; }
+        public string KullanimTalimati { get; set; }
         public Nullable<long> HastaID { get; set; }
         public Nullable<long> DoktorID { get; set; }
     

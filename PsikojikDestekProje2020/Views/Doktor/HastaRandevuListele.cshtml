@@ -1,0 +1,81 @@
+﻿@using PsikojikDestekProje2020.Models.Entitys
+@model List<Randevu>
+@{
+    ViewBag.Title = "HastaRandevuListele";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+
+
+
+<html>
+<head>
+    <title>Hasta Randevu Detay</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+<body>
+    <br />
+    <br />
+
+
+
+    <form method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+        <h2>Hasta Randevu Detayı </h2>
+
+
+        <table class="table table-responsive-sm">
+            <tr class="w3-light-grey w3-hover-red">
+                <th>Randevu Numarası</th>
+                <th>Hastanın Adı</th>
+
+                <th>Doktorun Adı</th>
+                <th>Detaylar</th>
+
+
+            </tr>
+
+
+
+            @foreach (var hasta in Model)
+            {
+
+                <tr class="w3-hover-blue">
+
+                    <td>@hasta.RandevuID</td>
+                    <td>@hasta.Hasta.HastaAdı &nbsp @hasta.Hasta.HastaSoyadı</td>
+                    <td>@hasta.Doktor.DoktorAdı &nbsp @hasta.Doktor.SoktorSoyadı</td>
+                    <th> <a href="/Doktor/HastaRandevuDetay/@hasta.RandevuID" class="btn btn-info">Detay</a>  </th>
+
+
+
+
+
+
+                </tr>
+
+            }
+
+        </table>
+
+    </form>
+
+    <a href="/Doktor/Hastalarim/@Session["Doktorid"].ToString()" class="btn btn-outline-secondary">Hastalarim</a>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+

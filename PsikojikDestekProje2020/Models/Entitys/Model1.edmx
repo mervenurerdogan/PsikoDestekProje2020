@@ -85,10 +85,10 @@
           <Key>
             <PropertyRef Name="ReceteID" />
           </Key>
-          <Property Name="ReceteID" Type="bigint" Nullable="false" />
-          <Property Name="ilacAdi" Type="char" MaxLength="100" />
-          <Property Name="Doz" Type="char" MaxLength="80" />
-          <Property Name="KullanımTalimati" Type="char" MaxLength="400" />
+          <Property Name="ReceteID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlacAdi" Type="varchar" MaxLength="100" />
+          <Property Name="Doz" Type="varchar" MaxLength="50" />
+          <Property Name="KullanimTalimati" Type="varchar" MaxLength="400" />
           <Property Name="HastaID" Type="bigint" />
           <Property Name="DoktorID" Type="bigint" />
         </EntityType>
@@ -102,7 +102,7 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__Ilceler__IlID__25869641">
+        <Association Name="FK__Ilceler__IlID__38996AB5">
           <End Role="Iller" Type="Self.Iller" Multiplicity="0..1" />
           <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
           <ReferentialConstraint>
@@ -264,7 +264,7 @@
           <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recete" EntityType="Self.Recete" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Ilceler__IlID__25869641" Association="Self.FK__Ilceler__IlID__25869641">
+          <AssociationSet Name="FK__Ilceler__IlID__38996AB5" Association="Self.FK__Ilceler__IlID__38996AB5">
             <End Role="Iller" EntitySet="Iller" />
             <End Role="Ilceler" EntitySet="Ilceler" />
           </AssociationSet>
@@ -382,7 +382,7 @@
           <Property Name="IlID" Type="Int32" />
           <Property Name="Ilce" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Hastane" Relationship="Self.FK_Hastane_Ilceler" FromRole="Ilceler" ToRole="Hastane" />
-          <NavigationProperty Name="Iller" Relationship="Self.FK__Ilceler__IlID__25869641" FromRole="Ilceler" ToRole="Iller" />
+          <NavigationProperty Name="Iller" Relationship="Self.FK__Ilceler__IlID__38996AB5" FromRole="Ilceler" ToRole="Iller" />
         </EntityType>
         <EntityType Name="Iller">
           <Key>
@@ -390,7 +390,7 @@
           </Key>
           <Property Name="IlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Il" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ilceler" Relationship="Self.FK__Ilceler__IlID__25869641" FromRole="Iller" ToRole="Ilceler" />
+          <NavigationProperty Name="Ilceler" Relationship="Self.FK__Ilceler__IlID__38996AB5" FromRole="Iller" ToRole="Ilceler" />
         </EntityType>
         <EntityType Name="Randevu">
           <Key>
@@ -408,10 +408,10 @@
           <Key>
             <PropertyRef Name="ReceteID" />
           </Key>
-          <Property Name="ReceteID" Type="Int64" Nullable="false" />
-          <Property Name="ilacAdi" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Doz" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
-          <Property Name="KullanımTalimati" Type="String" MaxLength="400" FixedLength="true" Unicode="false" />
+          <Property Name="ReceteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlacAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Doz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullanimTalimati" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
           <Property Name="HastaID" Type="Int64" />
           <Property Name="DoktorID" Type="Int64" />
           <NavigationProperty Name="Doktor" Relationship="Self.FK_Recete_Doktor" FromRole="Recete" ToRole="Doktor" />
@@ -535,7 +535,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ilceler__IlID__25869641">
+        <Association Name="FK__Ilceler__IlID__38996AB5">
           <End Role="Iller" Type="Self.Iller" Multiplicity="0..1" />
           <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
           <ReferentialConstraint>
@@ -547,7 +547,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PsikoProjeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PsikoProjeEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bolum" EntityType="Self.Bolum" />
           <EntitySet Name="Doktor" EntityType="Self.Doktor" />
           <EntitySet Name="Hasta" EntityType="Self.Hasta" />
@@ -594,7 +594,7 @@
             <End Role="Ilceler" EntitySet="Ilceler" />
             <End Role="Hastane" EntitySet="Hastane" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ilceler__IlID__25869641" Association="Self.FK__Ilceler__IlID__25869641">
+          <AssociationSet Name="FK__Ilceler__IlID__38996AB5" Association="Self.FK__Ilceler__IlID__38996AB5">
             <End Role="Iller" EntitySet="Iller" />
             <End Role="Ilceler" EntitySet="Ilceler" />
           </AssociationSet>
@@ -645,7 +645,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PsikoProjeModelStoreContainer" CdmEntityContainer="PsikoProjeEntities">
+        <EntityContainerMapping StorageEntityContainer="PsikoProjeModelStoreContainer" CdmEntityContainer="PsikoProjeEntities1">
           <EntitySetMapping Name="Bolum">
             <EntityTypeMapping TypeName="PsikoProjeModel.Bolum">
               <MappingFragment StoreEntitySet="Bolum">
@@ -734,9 +734,9 @@
             <EntityTypeMapping TypeName="PsikoProjeModel.Recete">
               <MappingFragment StoreEntitySet="Recete">
                 <ScalarProperty Name="ReceteID" ColumnName="ReceteID" />
-                <ScalarProperty Name="ilacAdi" ColumnName="ilacAdi" />
+                <ScalarProperty Name="IlacAdi" ColumnName="IlacAdi" />
                 <ScalarProperty Name="Doz" ColumnName="Doz" />
-                <ScalarProperty Name="KullanımTalimati" ColumnName="KullanımTalimati" />
+                <ScalarProperty Name="KullanimTalimati" ColumnName="KullanimTalimati" />
                 <ScalarProperty Name="HastaID" ColumnName="HastaID" />
                 <ScalarProperty Name="DoktorID" ColumnName="DoktorID" />
               </MappingFragment>

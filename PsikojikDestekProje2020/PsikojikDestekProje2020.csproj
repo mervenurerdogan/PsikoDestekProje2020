@@ -129,8 +129,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DoktorController.cs" />
+    <Compile Include="Controllers\DoktorKayitController.cs" />
+    <Compile Include="Controllers\DoktorLoginController.cs" />
+    <Compile Include="Controllers\DoktorProfilIslemleriController.cs" />
     <Compile Include="Controllers\HastaController.cs" />
+    <Compile Include="Controllers\HastaLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IlkSayfaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,8 +203,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\Entitys\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Entitys\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -279,9 +284,24 @@
     <Content Include="Views\Hasta\HastaIndex.cshtml" />
     <Content Include="Views\Shared\_DoktorLayout.cshtml" />
     <Content Include="Views\Doktor\DoktorIndex.cshtml" />
+    <Content Include="Views\Doktor\Hastalarim.cshtml" />
+    <Content Include="Views\Doktor\HastaDetayGetir.cshtml" />
+    <Content Include="Views\Doktor\HastaRandevuDetay.cshtml" />
+    <Content Include="Views\Doktor\HastaReceteDetayGetir.cshtml" />
+    <Content Include="Views\Doktor\HastaNotDetayGetir.cshtml" />
+    <Content Include="Views\Doktor\NotListe.cshtml" />
+    <Content Include="Views\DoktorLogin\DoktorGirisYap.cshtml" />
+    <Content Include="Views\IlkSayfa\IlkSayfaIndex.cshtml" />
+    <Content Include="Views\DoktorProfilIslemleri\DoktorProfilimGetir.cshtml" />
+    <Content Include="Views\Doktor\HastaReceteListele.cshtml" />
+    <Content Include="Views\Doktor\HastaRandevuListele.cshtml" />
+    <Content Include="Views\Doktor\RandevularimiListele.cshtml" />
+    <Content Include="Views\DoktorKayit\DoktorKayitOl.cshtml" />
+    <Content Include="Views\Doktor\NotEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\HastaLogin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

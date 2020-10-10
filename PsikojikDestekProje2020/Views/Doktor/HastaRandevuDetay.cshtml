@@ -1,0 +1,98 @@
+﻿@model PsikojikDestekProje2020.Models.Entitys.Randevu
+@{
+    ViewBag.Title = "HastaRandevuDetay";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+
+
+<html>
+<head>
+    <title>Hasta Randevu Detay</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+<body>
+    <br />
+    <br />
+
+
+    @using (Html.BeginForm("HastaDetayGuncelle", "Doktor", FormMethod.Post, new { @class = "w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" }))
+
+    {
+        <h2>Hasta Detay </h2>
+
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <label>Randevu Tarihi</label>
+                @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="w3-half">
+                <label>Randevu Durum</label>
+                @Html.TextBoxFor(x => x.RandevuDurum, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <label>Doktor Adı</label>
+                @Html.TextBoxFor(x => x.Doktor.DoktorAdı, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+            <div class="w3-half">
+
+                <label>Doktor Soyadı</label>
+                @Html.TextBoxFor(x => x.Doktor.SoktorSoyadı, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <label>Hasta Adı </label>
+                @Html.TextBoxFor(x => x.Hasta.HastaAdı, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="w3-half">
+                <label>Hasta Soyadı</label>
+                @Html.TextBoxFor(x => x.Hasta.HastaSoyadı, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <label>Hasta T.C </label>
+                @Html.TextBoxFor(x => x.Hasta.HastaTC, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="w3-half">
+                <label>Hasta Mail Adresi</label>
+                @Html.TextBoxFor(x => x.Hasta.HastaMail, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+
+
+        <div style=" margin-bottom:15px;margin-top:15px;position:relative">
+        </div>
+        <br />
+
+
+        <a href="/Doktor/Hastalarim/@Session["Doktorid"].ToString()" class="btn btn-outline-secondary">Hastalarim</a>
+
+        @Html.HiddenFor(n => n.RandevuID)
+
+    }
+
+
+
+
+
+</body>
+
+</html>
+
+

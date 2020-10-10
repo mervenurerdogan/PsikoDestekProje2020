@@ -72,7 +72,7 @@
     <Property Name="IlID" Type="Int32" />
     <Property Name="Ilce" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Hastane" Relationship="Self.FK_Hastane_Ilceler" FromRole="Ilceler" ToRole="Hastane" />
-    <NavigationProperty Name="Iller" Relationship="Self.FK__Ilceler__IlID__25869641" FromRole="Ilceler" ToRole="Iller" />
+    <NavigationProperty Name="Iller" Relationship="Self.FK__Ilceler__IlID__38996AB5" FromRole="Ilceler" ToRole="Iller" />
   </EntityType>
   <EntityType Name="Iller">
     <Key>
@@ -80,7 +80,7 @@
     </Key>
     <Property Name="IlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Il" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Ilceler" Relationship="Self.FK__Ilceler__IlID__25869641" FromRole="Iller" ToRole="Ilceler" />
+    <NavigationProperty Name="Ilceler" Relationship="Self.FK__Ilceler__IlID__38996AB5" FromRole="Iller" ToRole="Ilceler" />
   </EntityType>
   <EntityType Name="Randevu">
     <Key>
@@ -98,10 +98,10 @@
     <Key>
       <PropertyRef Name="ReceteID" />
     </Key>
-    <Property Name="ReceteID" Type="Int64" Nullable="false" />
-    <Property Name="ilacAdi" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-    <Property Name="Doz" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
-    <Property Name="KullanımTalimati" Type="String" MaxLength="400" FixedLength="true" Unicode="false" />
+    <Property Name="ReceteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IlacAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Doz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KullanimTalimati" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
     <Property Name="HastaID" Type="Int64" />
     <Property Name="DoktorID" Type="Int64" />
     <NavigationProperty Name="Doktor" Relationship="Self.FK_Recete_Doktor" FromRole="Recete" ToRole="Doktor" />
@@ -225,7 +225,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ilceler__IlID__25869641">
+  <Association Name="FK__Ilceler__IlID__38996AB5">
     <End Role="Iller" Type="Self.Iller" Multiplicity="0..1" />
     <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
     <ReferentialConstraint>
@@ -237,7 +237,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="PsikoProjeEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="PsikoProjeEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Bolum" EntityType="Self.Bolum" />
     <EntitySet Name="Doktor" EntityType="Self.Doktor" />
     <EntitySet Name="Hasta" EntityType="Self.Hasta" />
@@ -284,7 +284,7 @@
       <End Role="Ilceler" EntitySet="Ilceler" />
       <End Role="Hastane" EntitySet="Hastane" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ilceler__IlID__25869641" Association="Self.FK__Ilceler__IlID__25869641">
+    <AssociationSet Name="FK__Ilceler__IlID__38996AB5" Association="Self.FK__Ilceler__IlID__38996AB5">
       <End Role="Iller" EntitySet="Iller" />
       <End Role="Ilceler" EntitySet="Ilceler" />
     </AssociationSet>
