@@ -9,6 +9,8 @@ namespace PsikojikDestekProje2020.Controllers
 {
     public class HastaLoginController : Controller
     {
+
+        PsikoProjeEntities1 db = new PsikoProjeEntities1();
         // GET: HastaLogin
         public ActionResult Index()
         {
@@ -26,7 +28,7 @@ namespace PsikojikDestekProje2020.Controllers
         [HttpPost]
         public ActionResult HastaGirisYap(Hasta hst)
         {
-
+            
             return View();
         }
 
