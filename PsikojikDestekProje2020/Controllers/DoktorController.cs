@@ -104,7 +104,7 @@ namespace PsikojikDestekProje2020.Controllers
 
         public ActionResult HastaRandevuListele(int id)
         {
-            var randevuliste = db.Randevu.Where(x => x.HastaID == id).ToList();
+            var randevuliste = db.Randevu.Where(x => x.DoktorID == id).ToList();
 
             return View(randevuliste);
         }
